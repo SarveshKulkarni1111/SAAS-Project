@@ -1,0 +1,57 @@
+/* Sidebar.css */
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  background-color: #111;
+  padding-top: 20px;
+  transition: width 0.3s;
+}
+
+.closed {
+  width: 60px;
+}
+
+.sidebar div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar a:hover {
+  background-color: #333;
+}
+
+.toggle-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+.main-content {
+  margin-left: 200px; /* Adjust the initial margin based on the sidebar width */
+  transition: margin-left 0.3s;
+}
+
+.closed .main-content {
+  margin-left: 60px; /* Adjust the closed state margin */
+}
