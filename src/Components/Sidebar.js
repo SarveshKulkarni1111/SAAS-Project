@@ -19,7 +19,8 @@ const Sidebar = () => {
         <div>
           <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
-          <Link to="/profile">Profile</Link>
+          {/* <Link to="/profile">Profile</Link> */}
+          <Link to="/customer">Customers</Link>
           {/* Add more links as needed */}
         </div>
       )}

@@ -1,0 +1,19 @@
+.bar-graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    max-width: 90%;
+    max-height: 90%;
+    position: fixed;
+    top: 45%;
+    right: 20px;
+    left: 850px;
+    transform: translate(0, -50%);
+  }
+  
+  .bar-graph {
+    width: 130%;
+    height: 130%;
+  }
+  
