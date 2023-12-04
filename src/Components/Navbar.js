@@ -13,7 +13,10 @@ function Navbar() {
               <li><Link to="/about">About</Link></li>
               <div>
               <li><Link to="/login" > Login</Link></li> 
-              </div> 
+              </div>
+              <div>
+              <li><Link to="/signup" > Sign Up</Link></li> 
+              </div>  
             </ul>
           </nav>
       </div>
