@@ -2,18 +2,32 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import './Signup.css';
 import { Link } from 'react-router-dom';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import { auth } from '../firebase';
 
 function Signup() {
   const [values, setValues] = useState({
     name:"",
     email: "",
-    password: "",
+    pass: "",
   });
   
-
+  const[errorMsg, setErrorMsg]= useState("");
+  
   const handleSubmission =() => {
-    console.log(values);
-  }
+    if (!values.name || !values.email || !values.pass) {
+      setErrorMsg("Fill all fields");
+      return;
+    }
+    setErrorMsg("");
+
+    createUserWithEmailAndPassword(auth, values.email, values.pass)
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>console.log("ERROR:",err));
+
+  };
 
   return (
     <div>
@@ -49,12 +63,13 @@ function Signup() {
             type="password"
             placeholder="Enter your password"
             onChange={(event)=>
-            setValues((prev)=>({ ...prev, password: event.target.value}))
+            setValues((prev)=>({ ...prev, pass: event.target.value}))
           }
             
           />
+          <b>{errorMsg}</b>
+        <button type="button" onClick={handleSubmission}>Sign Up</button>
         </div>
-        <button onClick={handleSubmission}> Sign Up</button>
       </form>
       <p>
         Already have an account? <Link to="/login" className='text-black'>Login</Link> 
