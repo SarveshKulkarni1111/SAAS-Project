@@ -1,46 +1,35 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import './Signup.css';
+import { Link } from 'react-router-dom';
 
 function Signup() {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [values, setValues] = useState({
+    name:"",
+    email: "",
+    password: "",
+  });
+  
 
-  const handleFullNameChange = (e) => {
-    setFullName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your signup logic here (e.g., sending a request to a server to create a new user)
-    console.log('Full Name:', fullName);
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
+  const handleSubmission =() => {
+    console.log(values);
+  }
 
   return (
     <div>
         <Navbar /><br /><br />
     <div className="signup-container">
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="form-group">
           <label>Full Name:</label>
           <input
             type="text"
             placeholder="Enter your full name"
-            value={fullName}
-            onChange={handleFullNameChange}
-            required
+            onChange={(event)=>
+            setValues((prev)=>({ ...prev, name: event.target.value}))
+          }
+            
           />
         </div>
         <div className="form-group">
@@ -48,9 +37,10 @@ function Signup() {
           <input
             type="email"
             placeholder="Enter your email"
-            value={email}
-            onChange={handleEmailChange}
-            required
+            onChange={(event)=>
+            setValues((prev)=>({ ...prev, email: event.target.value}))
+          }
+            
           />
         </div>
         <div className="form-group">
@@ -58,13 +48,17 @@ function Signup() {
           <input
             type="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
+            onChange={(event)=>
+            setValues((prev)=>({ ...prev, password: event.target.value}))
+          }
+            
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button onClick={handleSubmission}> Sign Up</button>
       </form>
+      <p>
+        Already have an account? <Link to="/login" className='text-black'>Login</Link> 
+      </p>
       </div>
     </div>
   );
