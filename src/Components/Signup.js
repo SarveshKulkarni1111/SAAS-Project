@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import './Signup.css';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import { auth } from '../firebase';
 
 function Signup() {
+  const navigate=useNavigate();
   const [values, setValues] = useState({
     name:"",
     email: "",
@@ -13,6 +14,7 @@ function Signup() {
   });
   
   const[errorMsg, setErrorMsg]= useState("");
+  const[submitButtonDisabled, setSubmitButtonDisabled]=useState(false);
   
   const handleSubmission =() => {
     if (!values.name || !values.email || !values.pass) {
@@ -20,14 +22,23 @@ function Signup() {
       return;
     }
     setErrorMsg("");
-
+    setSubmitButtonDisabled(true);
     createUserWithEmailAndPassword(auth, values.email, values.pass)
-    .then((res)=>{
+    .then(async(res)=>{
+      setSubmitButtonDisabled(false);
+      const user = res.user;
+      await updateProfile(user,
+        {displayName: user.displayName,
+      });
+      navigate('/');
       console.log(res);
     })
-    .catch((err)=>console.log("ERROR:",err));
+    .catch((err)=>{
+      setSubmitButtonDisabled(false);
+      setErrorMsg(err.message);
+      console.log("ERROR:",err)});
 
-  };
+  }; 
 
   return (
     <div>
@@ -68,7 +79,7 @@ function Signup() {
             
           />
           <b>{errorMsg}</b>
-        <button type="button" onClick={handleSubmission}>Sign Up</button>
+        <button type="button" onClick={handleSubmission} disabled={submitButtonDisabled}>Sign Up</button>
         </div>
       </form>
       <p>
