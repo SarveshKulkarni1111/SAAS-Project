@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import './Signup.css';
 import { Link } from 'react-router-dom';
+import './Signup.css';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import { auth } from '../firebase';
 

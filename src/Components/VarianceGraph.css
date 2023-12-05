@@ -3,13 +3,11 @@
     justify-content: center;
     align-items: center;
     border: 1px solid #ddd;
-    max-width: 90%;
-    max-height: 90%;
-    position: fixed;
+    max-width: 70%;
+    max-height: 60%;
     top: 45%;
     right: 20px;
     left: 850px;
-    transform: translate(0, -50%);
   }
   
   .bar-graph {

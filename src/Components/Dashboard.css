@@ -1,0 +1,35 @@
+.app-container {
+    display: flex;
+    top: 20px;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Add additional styling for each graph if needed */
+  .bar-graph {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  
+  .budget-variance-chart {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+  
+  .lead-conversion-gauge {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+  
+  .lead-conversion-rate-graph {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  

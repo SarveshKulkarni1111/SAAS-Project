@@ -4,6 +4,9 @@ import LoggedInNav from "./LoggedInNav";
 import Sidebar from './Sidebar';
 import BarGraph from './barGraph';
 import BudgetVarianceChart from './VarianceChart';
+import LeadConversionRateGraph from './LeadConversion';
+import LeadConversionGauge from './Gaugechart';
+import "./Dashboard.css";
 
 
 
@@ -31,16 +34,34 @@ const Dashboard = () => {
     
   ];
 
+  const leadConversionRate = 65;
+  const targetConversionRate = 65;
+
   return (
     <div>
     <LoggedInNav />
     <div className="app-container">
     <Sidebar />
     <div className="main-content">
-     <h1>Welcome to Dashboard!!</h1>
-     <BarGraph data={testData} />
-     <BudgetVarianceChart  data={budgetData}/>
-     </div>
+  <div className="graph-container">
+    <BarGraph className="bar-graph" data={testData} />
+  </div>
+  <div className="graph-container">
+    <BudgetVarianceChart className="budget-variance-chart" data={budgetData} />
+  </div>
+  <div className="graph-container">
+    <LeadConversionGauge
+      className="lead-conversion-gauge"
+      leadConversionRate={leadConversionRate}
+      targetConversionRate={targetConversionRate}
+    />
+  </div>
+  <div className="graph-container">
+    <LeadConversionRateGraph className="lead-conversion-rate-graph" />
+  </div>
+</div>
+
+
      </div>
     </div>
   );
