@@ -28,7 +28,7 @@ function Signup() {
       setSubmitButtonDisabled(false);
       const user = res.user;
       await updateProfile(user,
-        {displayName: user.displayName,
+        {displayName: values.name,
       });
       navigate('/');
       console.log(res);

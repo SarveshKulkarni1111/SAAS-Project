@@ -3,13 +3,14 @@ import Navbar from './Navbar';
 import './Home.css'
 import {Link} from 'react-router-dom';
 
-function Home() {
+function Home(props) {
   return (
     <div>
     <Navbar />
     <div class="container">
         <section class="hero">
             <div class="hero-content">
+            <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
                 <h1>Streamline Your Business with Our ERP Solutions</h1>
                 <p>Enhance efficiency, reduce costs, and optimize processes with our cutting-edge ERP software.</p>
                 <Link to="/about"className="cta-button" style={{ textDecoration: 'none' }} > Get Started</Link>
