@@ -1,25 +1,17 @@
-
-import React, { useEffect } from 'react';
+// eslint-disable-next-line
+import React from 'react';
 import LoggedInNav from "./LoggedInNav";
 import Sidebar from './Sidebar';
 import BarGraph from './barGraph';
 import BudgetVarianceChart from './VarianceChart';
 import LeadConversionRateGraph from './LeadConversion';
 import LeadConversionGauge from './Gaugechart';
-
-import Chart from 'chart.js/auto'; 
 import "./Dashboard.css";
 
+
+
 const Dashboard = (props) => {
-  useEffect(() => {
-    // Cleanup when component unmounts
-    return () => {
-      // Destroy all Chart instances
-      Chart.helpers.each(Chart.instances, (instance) => {
-        instance.destroy();
-      });
-    };
-  }, []);
+
 
   const testData = [
     { label: 'Metric 1', value: 25 },
@@ -39,6 +31,7 @@ const Dashboard = (props) => {
     { month: 'August', expected: 1200, actual: 1000 },
     { month: 'September', expected: 1300, actual: 900 },
     { month: 'October', expected: 1400, actual: 900 },
+    
   ];
 
   const leadConversionRate = 65;
@@ -46,31 +39,36 @@ const Dashboard = (props) => {
 
   return (
     <div>
-      <LoggedInNav />
-      <div className="app-container">
-        <Sidebar />
-        <div className="main-content">
-          <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
-          <div className="graph-container">
-            <BarGraph className="bar-graph" data={testData} />
-          </div>
-          <div className="graph-container">
-            <BudgetVarianceChart className="budget-variance-chart" data={budgetData} />
-          </div>
-          <div className="graph-container">
-            <LeadConversionGauge
-              className="lead-conversion-gauge"
-              leadConversionRate={leadConversionRate}
-              targetConversionRate={targetConversionRate}
-            />
-          </div>
-          <div className="graph-container">
-            <LeadConversionRateGraph className="lead-conversion-rate-graph" />
-          </div>
-        </div>
-      </div>
+    <LoggedInNav />
+    <div className="app-container">
+    <Sidebar />
+    
+    <div className="main-content">
+      
+    <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
+  <div className="graph-container">
+    <BarGraph className="bar-graph" data={testData} />
+  </div>
+  <div className="graph-container">
+    <BudgetVarianceChart className="budget-variance-chart" data={budgetData} />
+  </div>
+  <div className="graph-container">
+    <LeadConversionGauge
+      className="lead-conversion-gauge"
+      leadConversionRate={leadConversionRate}
+      targetConversionRate={targetConversionRate}
+    />
+  </div>
+  <div className="graph-container">
+    <LeadConversionRateGraph className="lead-conversion-rate-graph" />
+  </div>
+</div>
+
+
+     </div>
     </div>
   );
 };
+
 
 export default Dashboard;
