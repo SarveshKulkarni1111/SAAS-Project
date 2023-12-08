@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './Components/Home';
 import About from './Components/About';
 import Login from './Components/Login';
@@ -8,6 +8,11 @@ import Navbar from './Components/Navbar';
 import Dashboard from './Components/Dashboard';
 import CustomerTable from './Components/Customer';
 import { auth } from './firebase';
+
+// Custom route component to protect the Dashboard route
+const ProtectedRoute = ({ element, user }) => {
+  return user ? element : <Navigate to="/login" />;
+};
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -47,7 +52,10 @@ const App = () => {
         <Navbar user={user} />
         <Routes>
           <Route path="/" element={<Home />} />
-          {user && <Route path="/dashboard" element={<Dashboard />} />}
+          <Route
+            path="/dashboard"
+            element={<ProtectedRoute element={<Dashboard />} user={user} />}
+          />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
