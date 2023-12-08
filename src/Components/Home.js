@@ -1,28 +1,31 @@
-import React from 'react';
-import Navbar from './Navbar';
-import './Home.css'
-import {Link} from 'react-router-dom';
+// Home.js
 
-function Home(props) {
+import React from 'react';
+import './Home.css';
+import { Link } from 'react-router-dom';
+
+function Home() {
   return (
-    <div>
-    <Navbar />
-    <div className="container">
+    <div className="home-container">
+      <div className="container">
         <section className="hero">
-            <div className="hero-content">
-            <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
-                <h1>Streamline Your Business with Our ERP Solutions</h1>
-                <p>Enhance efficiency, reduce costs, and optimize processes with our cutting-edge ERP software.</p>
-                <Link to="/about"className="cta-button" style={{ textDecoration: 'none' }} > Get Started</Link>
-            </div>
-            <div className="hero-image">
-                <img src="https://frappe.io/files/erpnext-hero-conference.png" alt="ERP Conference" />
-            </div>
+          <div className="hero-content">
+            <h1>Unlock Your Company's Potential with Data-Driven Insights</h1>
+            <p>
+              Elevate your business strategy with powerful dashboards and analytics. Gain valuable insights that empower decision-makers and drive overall growth.
+            </p>
+            <Link to="/about" className="cta-button">
+              Learn More
+            </Link>
+          </div>
+          <div className="hero-image">
+            <img src="https://shorturl.at/fyDN4" alt="Business Growth" />
+          </div>
         </section>
-    </div>
-    <footer>
-        <p>&copy; 2023 ERP Solutions Company. All rights reserved.</p>
-    </footer>
+      </div>
+      <footer>
+        <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

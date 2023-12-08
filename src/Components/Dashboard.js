@@ -10,7 +10,7 @@ import "./Dashboard.css";
 
 
 
-const Dashboard = (props) => {
+const Dashboard = () => {
 
 
   const testData = [
@@ -45,7 +45,7 @@ const Dashboard = (props) => {
     
     <div className="main-content">
       
-    <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
+    
   <div className="graph-container">
     <BarGraph className="bar-graph" data={testData} />
   </div>

@@ -1,60 +1,72 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
-import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase';
 
 function Signup() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [values, setValues] = useState({
-    name:"",
-    email: "",
-    pass: "",
+    name: '',
+    email: '',
+    pass: '',
   });
-  
-  const[errorMsg, setErrorMsg]= useState("");
-  const[submitButtonDisabled, setSubmitButtonDisabled]=useState(false);
-  
-  const handleSubmission =() => {
+
+  const [errorMsg, setErrorMsg] = useState('');
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
+  const handleSubmission = async (e) => {
+    e.preventDefault();
+
     if (!values.name || !values.email || !values.pass) {
-      setErrorMsg("Fill all fields");
+      setErrorMsg('Fill in all fields');
       return;
     }
-    setErrorMsg("");
+
+    // Password validation (minimum length)
+    if (values.pass.length < 6) {
+      setErrorMsg('Password must be at least 6 characters long');
+      return;
+    }
+
+    setErrorMsg('');
     setSubmitButtonDisabled(true);
-    createUserWithEmailAndPassword(auth, values.email, values.pass)
-    .then(async(res)=>{
-      setSubmitButtonDisabled(false);
+
+    try {
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.pass
+      );
+
       const user = res.user;
-      await updateProfile(user,
-        {displayName: values.name,
+      await updateProfile(user, {
+        displayName: values.name,
       });
+
+      setSubmitButtonDisabled(false);
       navigate('/');
       console.log(res);
-    })
-    .catch((err)=>{
+    } catch (err) {
       setSubmitButtonDisabled(false);
       setErrorMsg(err.message);
-      console.log("ERROR:",err)});
-
-  }; 
+      console.error('ERROR:', err);
+    }
+  };
 
   return (
-    <div>
-        <Navbar /><br /><br />
     <div className="signup-container">
       <h2>Sign Up</h2>
-      <form>
+      <form onSubmit={handleSubmission}>
         <div className="form-group">
           <label>Full Name:</label>
           <input
             type="text"
             placeholder="Enter your full name"
-            onChange={(event)=>
-            setValues((prev)=>({ ...prev, name: event.target.value}))
-          }
-            
+            value={values.name}
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, name: event.target.value }))
+            }
           />
         </div>
         <div className="form-group">
@@ -62,10 +74,10 @@ function Signup() {
           <input
             type="email"
             placeholder="Enter your email"
-            onChange={(event)=>
-            setValues((prev)=>({ ...prev, email: event.target.value}))
-          }
-            
+            value={values.email}
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, email: event.target.value }))
+            }
           />
         </div>
         <div className="form-group">
@@ -73,21 +85,25 @@ function Signup() {
           <input
             type="password"
             placeholder="Enter your password"
-            onChange={(event)=>
-            setValues((prev)=>({ ...prev, pass: event.target.value}))
-          }
-            
+            value={values.pass}
+            onChange={(event) =>
+              setValues((prev) => ({ ...prev, pass: event.target.value }))
+            }
           />
           <b>{errorMsg}</b>
-        <button type="button" onClick={handleSubmission} disabled={submitButtonDisabled}>Sign Up</button>
+          <button type="submit" disabled={submitButtonDisabled}>
+            Sign Up
+          </button>
         </div>
       </form>
       <p>
-        Already have an account? <Link to="/login" className='text-black'>Login</Link> 
+        Already have an account?{' '}
+        <Link to="/login" className="text-black">
+          Login
+        </Link>
       </p>
-      </div>
     </div>
   );
 }
 
-export default Signup;    
+export default Signup;
