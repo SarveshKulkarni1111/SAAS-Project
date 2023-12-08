@@ -14,8 +14,8 @@ function Home() {
             <p>
               Elevate your business strategy with powerful dashboards and analytics. Gain valuable insights that empower decision-makers and drive overall growth.
             </p>
-            <Link to="/about" className="cta-button">
-              Learn More
+            <Link to="/dashboard" className="cta-button">
+              Explore Insights
             </Link>
           </div>
           <div className="hero-image">

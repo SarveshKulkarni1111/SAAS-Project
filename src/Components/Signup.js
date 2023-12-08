@@ -1,3 +1,5 @@
+// Signup.js
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
@@ -13,6 +15,7 @@ function Signup() {
   });
 
   const [errorMsg, setErrorMsg] = useState('');
+  const [loading, setLoading] = useState(false); // Added loading state
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const handleSubmission = async (e) => {
@@ -31,6 +34,7 @@ function Signup() {
 
     setErrorMsg('');
     setSubmitButtonDisabled(true);
+    setLoading(true); // Set loading state to true
 
     try {
       const res = await createUserWithEmailAndPassword(
@@ -45,10 +49,12 @@ function Signup() {
       });
 
       setSubmitButtonDisabled(false);
+      setLoading(false); // Set loading state to false
       navigate('/');
       console.log(res);
     } catch (err) {
       setSubmitButtonDisabled(false);
+      setLoading(false); // Set loading state to false
       setErrorMsg(err.message);
       console.error('ERROR:', err);
     }
@@ -92,8 +98,9 @@ function Signup() {
           />
           <b>{errorMsg}</b>
           <button type="submit" disabled={submitButtonDisabled}>
-            Sign Up
+            {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
+          {loading && <div className="loading-bar"></div>}
         </div>
       </form>
       <p>

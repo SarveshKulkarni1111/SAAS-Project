@@ -1,6 +1,5 @@
 // eslint-disable-next-line
 import React from 'react';
-import LoggedInNav from "./LoggedInNav";
 import Sidebar from './Sidebar';
 import BarGraph from './barGraph';
 import BudgetVarianceChart from './VarianceChart';
@@ -39,7 +38,7 @@ const Dashboard = () => {
 
   return (
     <div>
-    <LoggedInNav />
+    
     <div className="app-container">
     <Sidebar />
     
