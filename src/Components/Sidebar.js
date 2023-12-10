@@ -21,7 +21,7 @@ const Sidebar = () => {
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/revenue">Revenue Metrics</Link>
           <Link to="/customer">Customers</Link>
-          <Link to="/sales">Sales Metrics</Link>
+          {/* <Link to="/sales">Sales Metrics</Link> */}
           <Link to="/marketing">Marketing Metrics</Link>
           <Link to="/quality">Quality Metrics</Link>
         </div>

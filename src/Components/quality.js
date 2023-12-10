@@ -1,5 +1,8 @@
 import React from 'react';
 import Sidebar from './Sidebar';
+import PieChart from './itemDefects';
+import "./quality.css";
+
 const Quality = () => {
   return (
     <div className='app-container'>
@@ -9,6 +12,11 @@ const Quality = () => {
       <h2>Customer Complaints</h2>
       <p>48</p>
     </div>
+    <div className="revenue-card1">
+      <h2>Defect Rate</h2>
+      <p>12%</p>
+    </div>
+    <PieChart />
     </div>
     </div>
   );

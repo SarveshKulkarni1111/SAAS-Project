@@ -6,18 +6,20 @@ import BudgetVarianceChart from './VarianceChart';
 import LeadConversionRateGraph from './LeadConversion';
 import LeadConversionGauge from './Gaugechart';
 import "./Dashboard.css";
-
+// import useAuthorization from "./userAuthorization";
 
 
 const Dashboard = () => {
 
+  // const { isAuthorized } = useAuthorization(['admin']);
 
-  const testData = [
-    { label: 'Metric 1', value: 25 }, 
-    { label: 'Metric 2', value: 50 },
-    { label: 'Metric 3', value: 75 },
-    { label: 'Metric 4', value: 100 },
-  ];
+  // if (!isAuthorized) {
+  //   return <div>
+  //   You are not authorized to view this content.
+  //   </div>;
+  // }
+
+  
 
   const budgetData = [
     { month: 'January', expected: 1000, actual: 800 },
@@ -38,32 +40,24 @@ const Dashboard = () => {
 
   return (
     <div>
-    
     <div className="app-container">
     <Sidebar />
-    
     <div className="main-content">
-      
-    
-  <div className="graph-container">
-    <BarGraph className="bar-graph" data={testData} />
-  </div>
-  <div className="graph-container">
-    <BudgetVarianceChart className="budget-variance-chart" data={budgetData} />
-  </div>
-  <div className="graph-container">
+ 
+  <div className="graph-container1">
     <LeadConversionGauge
       className="lead-conversion-gauge"
       leadConversionRate={leadConversionRate}
       targetConversionRate={targetConversionRate}
     />
   </div>
-  <div className="graph-container">
+  <div className="graph-container2">
     <LeadConversionRateGraph className="lead-conversion-rate-graph" />
   </div>
+  <div className="graph-container">
+    <BudgetVarianceChart className="budget-variance-chart" data={budgetData} />
+  </div>
 </div>
-
-
      </div>
     </div>
   );

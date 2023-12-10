@@ -1,30 +1,30 @@
 // LeadConversionRateGraph.js
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import "./LeadConversion.css";
+import "./RevenueGraph.css";
 
-const LeadConversionRateGraph = () => {
+const RevenueGraph = () => {
 
     const data = [
-        { month: 'Jan', conversionRate: 50 },
-        { month: 'Feb', conversionRate: 60 },
-        { month: 'Mar', conversionRate: 70 },
-        { month: 'Apr', conversionRate: 80 },
-        { month: 'May', conversionRate: 75 },
-        { month: 'Jun', conversionRate: 80 },
-        { month: 'Jul', conversionRate: 75 },
-        { month: 'Aug', conversionRate: 70 },
-        { month: 'Sept', conversionRate: 65 },
-        { month: 'Oct', conversionRate: 75 },
-        { month: 'Nov', conversionRate: 80 },
-        { month: 'Dec', conversionRate: 85 },
+        { month: 'Jan', conversionRate: 10 },
+        { month: 'Feb', conversionRate: 20 },
+        { month: 'Mar', conversionRate: 22 },
+        { month: 'Apr', conversionRate: 15 },
+        { month: 'May', conversionRate: 12 },
+        { month: 'Jun', conversionRate: 12 },
+        { month: 'Jul', conversionRate: 20 },
+        { month: 'Aug', conversionRate: 20 },
+        { month: 'Sept', conversionRate: 20 },
+        { month: 'Oct', conversionRate: 35 },
+        { month: 'Nov', conversionRate: 36 },
+        { month: 'Dec', conversionRate: 40 },
       ];
 
   const chartData = {
     labels: data.map(entry => entry.month),
     datasets: [
       {
-        label: 'Lead Conversion Rate (%)',
+        label: 'Revenue growth (%)',
         fill: false,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -75,13 +75,13 @@ const LeadConversionRateGraph = () => {
   };
 
   return (
-      <div className="container">
-      <h2>Lead Conversion Rate Over Months</h2>
-      <div className="chart-container">
+      <div className="container1">
+      <h2>Revenue Growth</h2>
+      <div className="chart-container1">
         <Line data={chartData} options={chartOptions} />
       </div>
     </div>
   );
 };
 
-export default LeadConversionRateGraph;
+export default RevenueGraph;

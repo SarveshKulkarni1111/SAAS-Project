@@ -9,9 +9,17 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   /* RevenueCard.css */
+  .charts-container {
+    display: flex;
+  }
+  .chart {
+    margin-right: 20px; /* Add spacing between charts */
+  }
 
 .revenue-card {
     border: 1px solid #ccc;
@@ -35,7 +43,5 @@
     font-weight: bold;
   }
 
-  canvas {
-          max-width: 90%;
-        }
+ 
   
