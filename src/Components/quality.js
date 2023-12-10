@@ -10,7 +10,7 @@ const Quality = () => {
     <div className='main-content'>
     <div className="revenue-card">
       <h2>Customer Complaints</h2>
-      <p>48</p>
+      <p>160</p>
     </div>
     <div className="revenue-card1">
       <h2>Defect Rate</h2>
