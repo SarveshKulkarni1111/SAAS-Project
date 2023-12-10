@@ -21,12 +21,11 @@ const CreateUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       // Create user in Firebase authentication
-      const { email, password } = userDetails;
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-
+      await createUserWithEmailAndPassword(auth, userDetails.email, userDetails.password);
+  
       // Reset the form and display success message
       setUserDetails({
         fullName: '',
@@ -43,6 +42,7 @@ const CreateUser = () => {
       setErrorMessage(error.message);
     }
   };
+  
 
   return (
     <div>
