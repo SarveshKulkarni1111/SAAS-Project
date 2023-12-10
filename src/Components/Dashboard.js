@@ -13,7 +13,7 @@ const Dashboard = () => {
 
 
   const testData = [
-    { label: 'Metric 1', value: 25 },
+    { label: 'Metric 1', value: 25 }, 
     { label: 'Metric 2', value: 50 },
     { label: 'Metric 3', value: 75 },
     { label: 'Metric 4', value: 100 },

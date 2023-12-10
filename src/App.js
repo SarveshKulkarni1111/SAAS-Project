@@ -8,6 +8,10 @@ import Navbar from './Components/Navbar';
 import Dashboard from './Components/Dashboard';
 import CustomerTable from './Components/Customer';
 import { auth } from './firebase';
+import Revenue from './Components/revenue';
+import Quality from './Components/quality';
+import Sales from './Components/sales';
+import Marketing from './Components/marketing';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -52,6 +56,11 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/customer" element={<CustomerTable />} />
+          <Route path="/revenue" element={<Revenue />} />
+          <Route path="/quality" element= {<Quality />} />
+          <Route path="/sales" element= {<Sales />} />
+          <Route path="/marketing" element= {<Marketing />} />
+
         </Routes>
       </Router>
     </div>

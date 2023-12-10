@@ -1,6 +1,5 @@
 import React from 'react';
 import './Customer.css'; // Import the CSS file
-import LoggedInNav from './LoggedInNav';
 import Sidebar from './Sidebar';
 
 const CustomerTable = () => {
@@ -13,7 +12,6 @@ const CustomerTable = () => {
 
   return (
     <div>
-        <LoggedInNav />
         <Sidebar />
       <h2>Customer Details</h2>
       <table className="customer-table">

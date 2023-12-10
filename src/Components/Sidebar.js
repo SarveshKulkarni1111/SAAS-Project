@@ -19,9 +19,11 @@ const Sidebar = () => {
         <div>
           <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
-          {/* <Link to="/profile">Profile</Link> */}
+          <Link to="/revenue">Revenue Metrics</Link>
           <Link to="/customer">Customers</Link>
-          {/* Add more links as needed */}
+          <Link to="/sales">Sales Metrics</Link>
+          <Link to="/marketing">Marketing Metrics</Link>
+          <Link to="/quality">Quality Metrics</Link>
         </div>
       )}
     </div>
