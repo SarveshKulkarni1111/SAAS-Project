@@ -32,6 +32,8 @@ nav {
   .logo {
     width: 35px;
     height: auto;
+    margin-right:5px;
+    
   }
   
   .searchBar {
