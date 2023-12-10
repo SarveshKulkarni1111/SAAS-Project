@@ -7,6 +7,7 @@ import Signup from './Components/Signup';
 import Navbar from './Components/Navbar';
 import Dashboard from './Components/Dashboard';
 import CustomerTable from './Components/Customer';
+import CreateUser from './Components/CreateUser'; // Import the CreateUser component
 import { auth } from './firebase';
 import Revenue from './Components/revenue';
 import Quality from './Components/quality';
@@ -51,7 +52,7 @@ const App = () => {
         <Navbar user={user} />
         <Routes>
           <Route path="/" element={<Home />} />
-          {user && <Route path="/dashboard" element={<Dashboard />} />}
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -60,7 +61,7 @@ const App = () => {
           <Route path="/quality" element= {<Quality />} />
           <Route path="/sales" element= {<Sales />} />
           <Route path="/marketing" element= {<Marketing />} />
-
+          <Route path="/create-user" element={<CreateUser />} /> 
         </Routes>
       </Router>
     </div>

@@ -1,4 +1,3 @@
-// Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
@@ -28,7 +27,8 @@ function Navbar({ user }) {
                 className='searchBar'
               />
               <li><Link to="/dashboard">Dashboard</Link></li>
-              <li> <Link to="/" onClick={handleLogout}>Logout</Link></li>
+              <li><Link to="/create-user">Create User</Link></li>
+              <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
             </>
           ) : (
             <>
@@ -44,4 +44,3 @@ function Navbar({ user }) {
 }
 
 export default Navbar;
-
