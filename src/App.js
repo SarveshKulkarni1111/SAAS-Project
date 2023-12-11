@@ -41,12 +41,12 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/customer" element={<CustomerTable />} />
-          <Route path="/revenue" element={<Revenue />} />
-          <Route path="/quality" element={<Quality />} />
-          <Route path="/sales" element={<Sales />} />
-          <Route path="/marketing" element={<Marketing />} />
-          <Route path="/create-user" element={<CreateUser />} />
+          <Route path="/customer" element={<ProtectedRoute><CustomerTable /></ProtectedRoute>} />
+          <Route path="/revenue" element={<ProtectedRoute><Revenue /></ProtectedRoute>} />
+          <Route path="/quality" element={<ProtectedRoute><Quality /></ProtectedRoute>} />
+          <Route path="/sales" element={<ProtectedRoute><Sales /></ProtectedRoute>} />
+          <Route path="/marketing" element={<ProtectedRoute><Marketing /></ProtectedRoute>} />
+          <Route path="/create-user" element={<ProtectedRoute><CreateUser /></ProtectedRoute>} />
         </Routes>
       </Router>
     </div>

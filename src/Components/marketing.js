@@ -8,7 +8,7 @@ const Marketing = () => {
     <div className='main-content'>
     <div className="revenue-card">
       <h2>Conversion rate</h2>
-      <p>65%</p>
+      <p>45%</p>
     </div>
     <ROIChart />
     </div>
