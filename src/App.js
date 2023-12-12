@@ -14,6 +14,8 @@ import Revenue from './Components/revenue';
 import Quality from './Components/quality';
 import Sales from './Components/sales';
 import Marketing from './Components/marketing';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 
 const ProtectedRoute = ({ children }) => {
   const user = auth.currentUser;
@@ -49,6 +51,7 @@ const App = () => {
           <Route path="/create-user" element={<ProtectedRoute><CreateUser /></ProtectedRoute>} />
         </Routes>
       </Router>
+      <SpeedInsights />
     </div>
   );
 };
