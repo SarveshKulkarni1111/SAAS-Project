@@ -103,12 +103,12 @@ function Signup() {
           {loading && <div className="loading-bar"></div>}
         </div>
       </form>
-      <p>
+      <h3>
         Already have an account?{' '}
         <Link to="/login" className="text-black">
           Login
         </Link>
-      </p>
+      </h3>
     </div>
   );
 }

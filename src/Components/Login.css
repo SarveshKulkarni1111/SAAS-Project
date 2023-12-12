@@ -10,32 +10,33 @@
   }
   
   /* Style the heading */
-  h2 {
+  .login-container h2 {
     text-align: center;
     color: #333;
   }
   
   /* Style form elements */
-  .form-group {
-    margin-bottom: 15px;
+  .login-container .form-group {
+    margin-bottom: 20px;
   }
   
-  label {
+  .login-container label {
     display: block;
     margin-bottom: 5px;
     color: #555;
   }
   
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
+  .login-container input[type="email"],
+  .login-container  input[type="password"] {
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 10px;
   }
   
   /* Style the login button */
-  button {
+  .login-container button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -47,7 +48,7 @@
   }
   
   /* Change button color on hover */
-  button:hover {
+  .login-container button:hover {
     background-color: #0056b3;
   }
   

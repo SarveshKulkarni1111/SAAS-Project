@@ -35,6 +35,8 @@
 
 .signup-container button {
   display: block;
+  width: 106%;
+  padding: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;

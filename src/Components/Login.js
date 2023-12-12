@@ -68,12 +68,12 @@ function Login() {
           Login
         </button>
       </form>
-      <p>
+      <h3>
         Don't have an account?{' '}
         <Link to="/signup" className="text-black">
           Signup
         </Link>
-      </p>
+      </h3>
     </div>
   );
 }
