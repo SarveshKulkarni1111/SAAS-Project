@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .logo {
+    width: 35px;
+    height: auto;
+  }
+  
+  .searchBar {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 1rem;
+    max-width: 300px;
+  }
+  

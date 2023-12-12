@@ -1,0 +1,19 @@
+.container1 {
+    max-width: 80%;
+    margin-top: -220px;
+    margin-left: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Style for the chart container */
+  .chart-container1 {
+    position: relative;
+    margin-top: 20px;
+  }
+  
+ 
+  

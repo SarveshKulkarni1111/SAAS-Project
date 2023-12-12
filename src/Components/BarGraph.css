@@ -1,0 +1,9 @@
+.bar-graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd; /* Add any additional styling you want */
+    max-width: 50%;
+    max-height: 80%;
+  }
+  

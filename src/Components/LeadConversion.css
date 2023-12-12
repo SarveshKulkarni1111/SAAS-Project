@@ -1,0 +1,24 @@
+/* LeadConversionRateGraph.css */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Style for the chart container */
+  .chart-container {
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  /* Optional: Add some styling for responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 10px;
+    }
+  }
+  
